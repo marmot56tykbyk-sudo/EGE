@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тренировка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <a href="/" class="back">← На главную</a>
+    <h1>
+        {% if topic == "algebra" %}🧮 Алгебра{% else %}📏 Геометрия{% endif %}
+    </h1>
+
+    <p class="score">Счёт: <b>{{ score }}</b> из <b>{{ total }}</b></p>
+
+    <div class="question">
+        <p class="q-text">{{ question }}</p>
+        <p class="hint">💡 Подсказка: {{ hint }}</p>
+    </div>
+
+    <form method="post">
+        <input type="text" name="answer" placeholder="Введите ответ..." autofocus required autocomplete="off">
+        <button type="submit">Проверить</button>
+    </form>
+
+    {% if feedback %}
+    <div class="feedback {{ feedback[0] }}">
+        {{ feedback[1] }}
+    </div>
+    <form method="post">
+        <input type="hidden" name="next" value="1">
+        <button type="submit" class="next">➡️ Следующий вопрос</button>
+    </form>
+    {% endif %}
+
+    <p class="tip">
+        Формат ответа: без пробелов, умножение <code>*</code>,
+        степень <code>^</code>, π как <code>pi</code>.
+        Например: <code>b^2-4ac</code>
+    </p>
+</div>
+</body>
+</html>

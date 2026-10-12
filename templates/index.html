@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЕГЭ Математика — тренажёр</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>📐 Тренажёр ЕГЭ по математике</h1>
+    <p class="subtitle">Выберите раздел для тренировки:</p>
+
+    <div class="cards">
+        <a class="card" href="/train/algebra">
+            <h2>🧮 Алгебра</h2>
+            <p>Формулы: квадратные уравнения, логарифмы, тригонометрия, прогрессии</p>
+        </a>
+
+        <a class="card" href="/train/geometry">
+            <h2>📏 Геометрия</h2>
+            <p>Теоремы: Пифагор, косинусы, синусы, площади и объёмы</p>
+        </a>
+    </div>
+
+    <a href="/reset" class="reset">🔄 Сбросить прогресс</a>
+</div>
+</body>
+</html>
